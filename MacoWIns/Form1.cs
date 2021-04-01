@@ -13,19 +13,14 @@ namespace MacoWIns
 {
     public partial class Form1 : Form
     {
-        
-
-        Ventas ventas;
+        Local local;
         Venta venta;
-
         public Form1()
         {
             InitializeComponent();
             
-            ventas = new Ventas();
+            local = new Local();
             venta = new Venta();
-            
-    
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -51,26 +46,33 @@ namespace MacoWIns
                 else { prenda.estado = new Nueva(); }
             }
 
-            venta.Precio+=prenda.DevuelvePrecio();
-            venta.Cantidad += 1;
+            venta.AñadirPrenda(prenda);
 
-            venta.prendas.Add(prenda);
 
             lbl_cantItems.Text = venta.Cantidad.ToString();
-            lbl_Monto.Text = "$ " + venta.Precio.ToString();
-            
+            lbl_Monto.Text = '$'+venta.Precio.ToString();
         }
 
         private void btn_FinalizarVenta_Click(object sender, EventArgs e)
         {
+
             venta.fecha = DateTime.Today;
-            ventas.IngresarVenta(venta);
-      
-            MessageBox.Show("La venta del día "+ venta.fecha.ToShortDateString() +" con un monto de $"+ venta.Precio+" fue realizada con éxito ", "Aviso del sistema");
+            if (radioBtn_Ef.Checked==true) { venta.tipo = new Efectivo();  }
+            else { venta.tipo = new Tarjeta(); venta.Total_recargo(); }
+
+            
+            venta.Precio = venta.tipo.CalcularPrecio(txtBox_Cuotas.Text, venta.Precio);
+            if (venta.Precio == -1) { MessageBox.Show("ERROR: No se pudo completar la operación", "Error"); }
+            else
+            {
+                local.IngresarVenta(venta);
+                MessageBox.Show("La venta del día " + venta.fecha.ToShortDateString() + " con un monto de $" + venta.Precio + " fue realizada con éxito ", "Aviso del sistema");
+            }
             venta = new Venta();
 
             lbl_Monto.Text = "0";
             lbl_cantItems.Text = "0";
+            txtBox_Cuotas.Text = "";
 
         }
 
@@ -78,7 +80,7 @@ namespace MacoWIns
         {
             try
             {
-                float monto= ventas.CalcularTot(Convert.ToDateTime(textBox_FechaG.Text));
+                float monto= local.CalcularTot(Convert.ToDateTime(textBox_FechaG.Text));
                 MessageBox.Show("La ganancia del día " + textBox_FechaG.Text + " fue de $" + monto.ToString());
             }
             catch

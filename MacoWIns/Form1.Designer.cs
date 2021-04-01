@@ -43,15 +43,22 @@ namespace MacoWIns
             this.btn_AgregarItem = new System.Windows.Forms.Button();
             this.btn_FinalizarVenta = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.lbl_cantItems = new System.Windows.Forms.Label();
-            this.lbl_Monto = new System.Windows.Forms.Label();
             this.btn_CalcularG = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox_FechaG = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.radioBtn_Tarj = new System.Windows.Forms.RadioButton();
+            this.radioBtn_Ef = new System.Windows.Forms.RadioButton();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtBox_Cuotas = new System.Windows.Forms.TextBox();
+            this.lbl_Monto = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // radioBtn_Nueva
@@ -178,7 +185,7 @@ namespace MacoWIns
             // 
             // btn_FinalizarVenta
             // 
-            this.btn_FinalizarVenta.Location = new System.Drawing.Point(39, 306);
+            this.btn_FinalizarVenta.Location = new System.Drawing.Point(22, 392);
             this.btn_FinalizarVenta.Name = "btn_FinalizarVenta";
             this.btn_FinalizarVenta.Size = new System.Drawing.Size(195, 34);
             this.btn_FinalizarVenta.TabIndex = 12;
@@ -195,15 +202,6 @@ namespace MacoWIns
             this.label3.TabIndex = 13;
             this.label3.Text = "Cantidad de items:";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(96, 261);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 15);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Monto: ";
-            // 
             // lbl_cantItems
             // 
             this.lbl_cantItems.AutoSize = true;
@@ -212,15 +210,6 @@ namespace MacoWIns
             this.lbl_cantItems.Size = new System.Drawing.Size(13, 15);
             this.lbl_cantItems.TabIndex = 15;
             this.lbl_cantItems.Text = "0";
-            // 
-            // lbl_Monto
-            // 
-            this.lbl_Monto.AutoSize = true;
-            this.lbl_Monto.Location = new System.Drawing.Point(151, 261);
-            this.lbl_Monto.Name = "lbl_Monto";
-            this.lbl_Monto.Size = new System.Drawing.Size(13, 15);
-            this.lbl_Monto.TabIndex = 16;
-            this.lbl_Monto.Text = "0";
             // 
             // btn_CalcularG
             // 
@@ -257,18 +246,97 @@ namespace MacoWIns
             this.label6.TabIndex = 20;
             this.label6.Text = "DD/MM/AAAA";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(39, 288);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(171, 15);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Seleccione un método de pago";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.radioBtn_Tarj);
+            this.panel3.Controls.Add(this.radioBtn_Ef);
+            this.panel3.Location = new System.Drawing.Point(12, 317);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(198, 35);
+            this.panel3.TabIndex = 8;
+            // 
+            // radioBtn_Tarj
+            // 
+            this.radioBtn_Tarj.AutoSize = true;
+            this.radioBtn_Tarj.Location = new System.Drawing.Point(116, 10);
+            this.radioBtn_Tarj.Name = "radioBtn_Tarj";
+            this.radioBtn_Tarj.Size = new System.Drawing.Size(59, 19);
+            this.radioBtn_Tarj.TabIndex = 4;
+            this.radioBtn_Tarj.Text = "Tarjeta";
+            this.radioBtn_Tarj.UseVisualStyleBackColor = true;
+            // 
+            // radioBtn_Ef
+            // 
+            this.radioBtn_Ef.AutoSize = true;
+            this.radioBtn_Ef.Checked = true;
+            this.radioBtn_Ef.Location = new System.Drawing.Point(10, 10);
+            this.radioBtn_Ef.Name = "radioBtn_Ef";
+            this.radioBtn_Ef.Size = new System.Drawing.Size(67, 19);
+            this.radioBtn_Ef.TabIndex = 3;
+            this.radioBtn_Ef.TabStop = true;
+            this.radioBtn_Ef.Text = "Efectivo";
+            this.radioBtn_Ef.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.radioBtn_Ef.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(67, 366);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(44, 15);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Cuotas";
+            // 
+            // txtBox_Cuotas
+            // 
+            this.txtBox_Cuotas.Location = new System.Drawing.Point(117, 363);
+            this.txtBox_Cuotas.Name = "txtBox_Cuotas";
+            this.txtBox_Cuotas.Size = new System.Drawing.Size(93, 23);
+            this.txtBox_Cuotas.TabIndex = 23;
+            // 
+            // lbl_Monto
+            // 
+            this.lbl_Monto.AutoSize = true;
+            this.lbl_Monto.Location = new System.Drawing.Point(98, 255);
+            this.lbl_Monto.Name = "lbl_Monto";
+            this.lbl_Monto.Size = new System.Drawing.Size(13, 15);
+            this.lbl_Monto.TabIndex = 25;
+            this.lbl_Monto.Text = "0";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(39, 255);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(46, 15);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Monto:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(719, 387);
+            this.ClientSize = new System.Drawing.Size(652, 442);
+            this.Controls.Add(this.lbl_Monto);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txtBox_Cuotas);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox_FechaG);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btn_CalcularG);
-            this.Controls.Add(this.lbl_Monto);
             this.Controls.Add(this.lbl_cantItems);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btn_FinalizarVenta);
             this.Controls.Add(this.btn_AgregarItem);
@@ -278,12 +346,14 @@ namespace MacoWIns
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "lbl_monto";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -305,13 +375,19 @@ namespace MacoWIns
         private System.Windows.Forms.Button btn_AgregarItem;
         private System.Windows.Forms.Button btn_FinalizarVenta;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbl_cantItems;
-        private System.Windows.Forms.Label lbl_Monto;
         private System.Windows.Forms.Button btn_CalcularG;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox_FechaG;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.RadioButton radioBtn_Tarj;
+        private System.Windows.Forms.RadioButton radioBtn_Ef;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtBox_Cuotas;
+        private System.Windows.Forms.Label lbl_Monto;
+        private System.Windows.Forms.Label label9;
     }
 }
 

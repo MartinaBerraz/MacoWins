@@ -5,11 +5,11 @@ using System.Text;
 
 namespace ClassLibrary
 {
-    public class Ventas
+    public class Local
     {
         public List<Venta> ventas { get; set; }
 
-        public Ventas()
+        public Local()
         {
             ventas = new List<Venta>();
         }
@@ -37,7 +37,7 @@ namespace ClassLibrary
     {
         public List<Prenda> prendas { get; set; }
         public int Cantidad { get; set; }
-
+        public Tipo tipo { get; set; }
         public float Precio { get; set; }
         public DateTime fecha { get; set; }
 
@@ -45,24 +45,54 @@ namespace ClassLibrary
         {
             this.prendas = new List<Prenda>();
         }
+        
+        public float Total_recargo()
+        {
+            foreach( Prenda p in prendas)
+            {
+                this.Precio += p.DevuelvePrecio() * 0.01F;
+            }
+
+            return Precio;
+        }
+    
+
+        public void AñadirPrenda(Prenda p)
+        {
+            this.prendas.Add(p);
+            Cantidad += 1;
+            Precio += p.DevuelvePrecio();
+
+            return;
+        }
 
     }
 
     public abstract class Tipo
     {
-        public virtual float CalcularPrecio(int cuotas,float precio)
+        public virtual float CalcularPrecio(string cuotas, float precio)
         {
             return precio;
-        }    
+        }
+        
 
     }
     public class Tarjeta: Tipo
     {
-        override public float CalcularPrecio(int cuotas, float precio)
+        override public float CalcularPrecio(string cuotas, float precio)
         {
-            float recargo = 0.05F;
-
-            return (cuotas * recargo + 0.01F * precio);
+            
+            float recargo = 100F;
+            try
+            {
+                int n= int.Parse(cuotas);
+                return (n* recargo + precio);
+            }
+            catch
+            {
+                return -1;
+            }
+            
         }
     }
     public class Efectivo : Tipo

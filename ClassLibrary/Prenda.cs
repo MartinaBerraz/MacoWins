@@ -6,7 +6,7 @@ namespace ClassLibrary
     {
         public float DevuelvePrecio()
         {
-            this.Precio = this.estado.CalcularPrecio(this.Precio);
+            this.Precio = estado.CalcularPrecio(this.Precio);
             return this.Precio;
         }
         public float Precio { get; set; }
